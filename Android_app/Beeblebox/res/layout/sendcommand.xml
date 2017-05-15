@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+              	 android:background="#9BC4E2"
+                 >
+    
+	<TextView android:id="@+id/description" 
+	    	  android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentTop="true"
+              android:textStyle="bold"/>
+                
+
+    <ImageView android:id="@+id/icon"
+        	   android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_centerInParent="true"
+               android:layout_marginTop="20dp"
+               android:maxHeight="330dp"
+               android:maxWidth="330dp"
+               android:adjustViewBounds="true"               
+               android:layout_below="@+id/description" >
+<!--                android:clickable="true"> -->
+<!--         android:layout_alignTop="@id/description"  android:layout_marginRight="10px"android:layout_marginTop="4px"> -->
+	</ImageView>
+
+   <Button android:id="@+id/mitigate_button"
+		   android:text="@string/mitigate_button"
+ 		   android:layout_width="100dp"
+		   android:layout_height="wrap_content"
+		   android:gravity="center_vertical|center_horizontal"
+		   android:layout_centerHorizontal="true"
+		   android:layout_alignParentBottom="true"
+		   android:layout_alignParentLeft="true"  
+		   android:textStyle="bold"
+ 		/>
+   
+   <Button android:id="@+id/call_button"
+		   android:text="@string/call_button"
+ 		   android:layout_width="100dp"
+		   android:layout_height="wrap_content"
+		   android:gravity="center_vertical|center_horizontal"
+		   android:layout_centerHorizontal="true"
+		   android:layout_alignParentBottom="true"
+		   android:layout_alignTop="@+id/mitigate_button"
+		   android:layout_toRightOf="@+id/mitigate_button"
+		   android:textStyle="bold"
+ 		/>
+   
+    <Button android:id="@+id/main_menu_button"
+		 android:text="@string/main_menu_button"
+ 		 android:layout_width="100dp"
+		 android:layout_height="wrap_content"
+		 android:layout_alignParentBottom="true"		 
+		 android:layout_centerHorizontal="true"
+		 android:layout_alignParentRight="true"
+		 android:layout_alignTop="@+id/mitigate_button"
+		 android:layout_toRightOf="@+id/call_button"
+		 android:textStyle="bold"
+ 		/>
+
+    </RelativeLayout>

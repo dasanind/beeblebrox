@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="ContentDescription">
+        <ignore path="res/layout/sendcommand.xml" />
+    </issue>
+    <issue id="NewApi">
+        <ignore path="src/com/msreport/beeblebox/GCMIntentService.java" />
+    </issue>
+</lint>

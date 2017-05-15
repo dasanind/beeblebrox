@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.1.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+ 
+    <context:annotation-config/>
+    <mvc:annotation-driven />
+    
+	<context:component-scan base-package="com.msreport.controller" />
+	<context:component-scan base-package="com.msreport.dao" />
+	<context:component-scan base-package="com.msreport.service" />
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/pages/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	
+	<!-- Register JSON Converter for RESTful Web Service -->  
+ 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">  
+         <property name="messageConverters">  
+                 <list>  
+                     <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">  
+                </bean></list>  
+        </property>  
+ 	</bean>  
+  
+ <!-- Http Json MessageConverter -->  
+ 	<bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">  
+       	 <property name="supportedMediaTypes" value="application/json">  
+ 	</property></bean>  
+   
+<!-- </mvc:view-controller></mvc:resources></context:component-scan></mvc:annotation-driven> -->
+
+<!-- declare beans -->  
+	<bean id="sensorInfoDAO" class="com.msreport.dao.SensorInfoDAOImpl">
+	</bean>
+ 	<bean id="sensorInfoService" class="com.msreport.service.SensorInfoServiceImpl" />  
+  
+ <!-- declare datasource bean -->  
+ 	<bean id="dataSource"  
+	  class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
+	  <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
+	  <property name="url" value="jdbc:mysql://localhost:3306/sensordata" />  
+	  <property name="username" value="anindita" />  
+<!-- 	  <property name="password" value="sandip" />   -->
+ 	</bean>  
+ 
+</beans>
